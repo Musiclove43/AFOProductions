@@ -1,0 +1,231 @@
+.main {
+
+}
+/*
+	Font family mixins..
+*/
+@mixin gothamFont() {
+	font-family:"Gotham HTF",sans-serif;
+}
+@mixin proximaFont() {
+	font-family:"Proxima Nova",sans-serif;
+}
+@mixin hotelFont() {
+	font-family:"Grand Hotel",sans-serif;
+}
+
+div.jumbotron {
+	background-color:#7effff;
+	margin-bottom:0px;
+	& img {
+		width:500px;
+		display:block;
+		margin:0 auto;
+	}
+}
+
+/*
+	Section break styles..
+*/
+.section-break {
+	// Background
+	background-repeat:repeat-x;
+	background-size:contain;
+	// Font
+	padding:10px 0px;
+	text-align:center;
+	color:white;
+	& hr {
+		border:3px solid;
+	}
+	& .section-title {
+		text-transform:uppercase;
+		font-size:64px;
+		@include gothamFont();
+	}
+
+	&.who-we-are {
+		background-image:url("/assets/img/Flamingoes.jpg");
+	}
+	&.what-we-do {
+		background-image:url("/assets/img/pineapple.jpg");
+	}
+	&.what-weve-done {
+		background-image:url("/assets/img/MovingStars.gif");
+	}
+}
+
+/*
+	Who we are
+*/
+section.who-we-are {
+	& .team-image {
+
+		// Transform thing?
+		opacity:0.1;
+		&.active {
+			opacity:1;
+		}
+		transition:all 0.2s ease-in-out;
+
+		// Display, etc.
+		display:table-cell;
+		& img {
+			@media(min-width:0px) {
+				width:50vw;
+			}
+			@media(min-width:768px) {
+				width:25vw;	
+			}
+		}
+	}
+
+	& .team-card {
+
+		display:none;
+		&.active {
+			display:block;
+		}
+
+		& .card-name {
+			@include proximaFont();
+			font-weight:500;
+			font-size:48px;
+			text-transform:uppercase;
+		}
+		& .card-title {
+			padding-top:10px;
+			@include proximaFont();
+			font-weight:100;
+			font-size:24px;
+			text-transform:uppercase;
+		}
+		& .card-body {
+			padding-top:15px;
+			@include proximaFont();
+			font-weight:700;
+		}
+	}
+}
+
+/*
+	What we do
+*/
+section.what-we-do {
+	background:#F2848F;
+
+	& .service-card {
+		display:table;
+		& .card-icon {
+			display:table-cell;
+			padding:5px;
+		}
+		& .card-meta {
+			display:table-cell;
+			padding:4.7px;
+			& .card-title, & .card-body {
+				@include gothamFont();
+			}
+			& .card-title {
+				color:#161616;
+				text-transform:uppercase;
+				font-size:24px;
+				font-weight:700;
+			}
+			& .card-body {
+				color:#fff;
+				font-size:18px;
+			}
+		}
+	}
+}
+
+/*
+	What we've done
+*/
+section.what-weve-done {
+	background:#89FFFF;
+	& .portfolio-item {
+		width:33.33vw;
+		display:table-cell;
+		& .item-container {
+			width:286px;
+			height:284px;
+			background-size:contain;
+			background-repeat:no-repeat;
+			background-image:url("/assets/img/orangeslice.png");
+			& .portfolio-title {
+				padding:50px;
+				& a {
+					color:black;
+					text-transform:uppercase;
+					@include proximaFont();
+					border:3px solid black;
+					padding:5px;
+					font-weight:700;
+					transition:all 0.2s ease-in-out;
+					opacity:0.6;
+					&:hover {
+						opacity:1;
+						text-decoration:none;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+	Footer
+*/
+footer.footer {
+	& .section-title {
+		& h1 {
+			@include gothamFont();
+			font-size:64px;
+			text-align:center;
+			color:#383838;
+			& span {
+				display:block;
+				font-size:12px;
+			}
+		}
+	}
+	& .form-group {
+		@include gothamFont();
+		& label {
+			font-size:20px;
+		}
+		& input, & select {
+			border-radius:0px!important;
+			box-shadow:unset;
+			font-size:20px;
+		}
+	}
+	& .footer-information {
+		& p {
+			@include gothamFont();
+			font-size:20px;
+		}
+	}
+	& span.orange-animation {
+		display:inline !important;
+		font-size:64px !important;
+
+		animation: colorAnimation;
+		animation-duration:1s;
+		animation-iteration-count:infinite;
+
+		@keyframes colorAnimation {
+			0% {
+				color:orange;
+			}
+			50% {
+				color:tango;
+			}
+			100% {
+				color:teal;
+			}
+		}
+	}
+}
